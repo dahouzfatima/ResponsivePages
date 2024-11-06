@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    #box {
+     
+        background-color: #1B9476;
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #icone {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        gap: 15px;
+    }
+
+    
+
+    .slogan {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .logo {
+       
+        max-width: 400px;
+        margin-top: 1rem;
+    }
+
+    .benevall-text {
+        font-size: 2.5rem;
+        font-weight: normal;
+        text-align: center;
+    }
+
+    #form-section {
+        margin-left: 600px;
+        flex: 1;
+        padding: 4px;
+        background-color: #A2CAC4;
+        max-width: 600px;
+        height: 500px;
+    }
+
+    
+
+    .p {
+        font-size: 0.875rem;
+        font-weight: normal;
+    }
+    
+
+    .circle {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .line {
+        width: 100px; 
+        height: 2px;
+        background-color: #065f46;
+    }
+
+    .label {
+        position: absolute;
+        top: 40px; 
+        width: 100px;
+        text-align: center;
+    }
+</style>
+
+<body class="bg-neutral-200 min-[320px]:flex-col md:flex md:flex-row items-center justify-center min-h-screen w-full">
+    <div class="lg:fixed lg:top-6 lg:ml-[30%] lg:z-20  lg:items-center hidden lg:flex lg:flex-row ">
+        
+      
+        <div class="relative flex flex-col items-center">
+            <div class="circle bg-green-900"></div>
+            <span class="label text-md text-green-900">Email</span>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="relative flex flex-col items-center">
+            <div class="circle bg-green-900"></div>
+            <span class="label text-sm text-green-900">Password</span>
+        </div>
+
+        
+        <div class="line"></div>
+
+        
+        <div class="relative flex flex-col items-center">
+            <div class="circle bg-green-900"></div>
+            <span class="label text-sm text-green-900 text-center">Association<br>information</span>
+        </div>
+
+        
+        <div class="line"></div>
+
+        
+        <div class="relative flex flex-col items-center">
+            
+            <div class="circle border-2 border-green-900"></div>
+            
+            <span class="label text-sm text-green-900">Requierd<br>documents</span>
+        </div>
+
+        
+        <div class="line"></div>
+        <div class="relative flex flex-col items-center">
+            <div class="circle bg-green-900"></div>
+            <span class="label text-sm text-green-900">Mission & <br>Activity</span>
+        </div>
+
+        
+        <div class="line"></div>
+
+       
+        <div class="relative flex flex-col items-center">
+            <div class="circle bg-green-900"></div>
+            <span class="label text-sm text-green-900">Validation</span>
+        </div>
+    </div>
+
+
+    
+        
+        
+    <div class=" min-[320px]:flex-grow min-[320px]:pb-7 min-[320px]:gap-5 min-[320px]:w-full min-[320px]:h-full min-[320px]:absolute  min-[320px]:flex-col min-[320px]:space-y-80 lg:w-0  "> 
+        <div id="box" class="min-[320px]:rounded-none lg:rounded-[32px] min-[320px]:absolute lg:fixed min-[320px]:w-full lg:h-[90vh] lg:pt-[100px] min-[320px]:top-0 min-[320px]:h-[85vh] min-[320px]:pb-20 lg:pb-1 lg:w-[400px] fixed lg:top-[20px] lg:left-[20px]">
+            <div id="icone" class="gap-3">
+                <img src="home_24dp_274483_FILL0_wght400_GRAD0_opsz24.png" alt="home" class="w-10 h-10">
+                <img src="help_24dp_274483_FILL0_wght400_GRAD0_opsz24.png" alt="help" class="w-10 h-10">
+            </div>
+            
+            <h1 class="slogan text-yellow-200 min-[320px]:mt-16 lg:mt-3">Lend a Hand,<br>Change<br> a Life!</h1>
+            
+            <div class="mt-4">
+                <img src="LogoV3.png" alt="logo" class="logo mx-auto">
+            </div>
+            
+            <h2 class="benevall-text text-blue-950">Bénév<span class="text-yellow-200">ALL</span></h2>
+        </div>
+        
+        
+        
+        <div class="lg:hidden min-[320px]:z-20 min-[320px]:h-auto min-[320px]:w-auto min-[320px]:p-0 flex min-[320px]:mb-10 min-[320px]:justify-center items-center min-[320px]:mx-auto relative top-48">
+            <div class="bg-[#A2CAC4] flex flex-col mt-2 rounded-[80px] items-center justify-center p-2 min-[320px]:h-[80vh] min-[320px]:w-[55vh] lg:flex" style="border-width: 20px; border-color: #1B9476;">
+                <h2 class="text-5xl md:text-5xl text-teal-900 font-normal text-center  mb-16">Sign Up</h2>
+                <form class="w-full max-w-[490px] justify-center  gap-10 flex flex-col items-center">
+                    <div class="relative w-full">
+                        <input name="bylaws" placeholder="Association Bylaws" type="file" id="bylaws" class="hidden">
+                        <input placeholder="Association Bylaws" 
+                            class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                        <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('bylaws').click()">
+                    </div>
+                    
+                    <div class="relative w-full">
+                        <input name="registration" placeholder="Proof of Registration" type="file" id="registration" class="hidden">
+                        <input placeholder="Proof of Registration" 
+                            class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                        <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('registration').click()">
+                    </div>
+                    
+                    <div class="relative w-full">
+                        <input name="charter" placeholder="Internal Regulations or Charter" type="file" id="charter" class="hidden">
+                        <input placeholder="Internal Regulations or Charter" 
+                            class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                        <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('charter').click()">
+                    </div>
+                     <button type="button" id="next-button-mobile" name="submit"
+                        class="mt-6 w-60 h-20 bg-teal-900 mt-6 text-white text-2xl py-2 rounded-[30px] font-semibold hover:bg-teal-950 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
+                        Next
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        
+        </div>
+    </div>
+
+    <div id="form-section" class="mr-[180px] flex-col mt-8 rounded-[130px] items-center justify-center p-1 min-[320px]:hidden lg:flex">
+            <h2 class="text-3xl md:text-5xl font-normal text-center mt-4 mb-10">Sign Up</h2>
+            <form class="w-full max-w-[490px] justify-center gap-4 space-y-5 flex flex-col items-center">
+                
+                <div class="relative w-full">
+                    <input name="bylaws" placeholder="Association Bylaws" type="file" id="bylaws" class="hidden">
+                    <input placeholder="Association Bylaws" 
+                        class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                    <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('bylaws').click()">
+                </div>
+                
+                <div class="relative w-full">
+                    <input name="registration" placeholder="Proof of Registration" type="file" id="registration" class="hidden">
+                    <input placeholder="Proof of Registration" 
+                        class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                    <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('registration').click()">
+                </div>
+                
+                <div class="relative w-full">
+                    <input name="charter" placeholder="Internal Regulations or Charter" type="file" id="charter" class="hidden">
+                    <input placeholder="Internal Regulations or Charter" 
+                        class="h-15 w-full text-1xl bg-neutral-200 px-4 py-4 rounded-[10px] border border-gray-300 focus:outline-none focus:ring-teal-500 pr-12" readonly>
+                    <img src="Frame.png" alt="documents" class="w-6 h-6 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" onclick="document.getElementById('charter').click()">
+                </div>
+        
+                <button type="button" id="next-button" name="submit"
+                    class="w-60 h-20 bg-teal-900 mt-6 text-white text-2xl py-2 rounded-[30px] font-semibold hover:bg-teal-950 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50">
+                    Next
+                </button>
+            </form>
+        </div>
+        
+        
+    
+    
+        <footer class="text-center w-full py-2 bg-teal-900 text-white lg:fixed lg:bottom-0 lg:w-full lg:z-20 min-[320px]:absolute min-[320px]:mt-[250%] min-[320px]:z-20">
+            <p class="p">© 2024 All rights reserved | <a href="#" class="hover:underline">Legal Notice</a> | <a href="#"
+                    class="hover:underline">Privacy Policy</a></p>
+        </footer>
+
+</body>
+<script>
+    document.getElementById("next-button").addEventListener("click", function() {
+    window.location.href = "association_page5.html"; 
+});
+
+
+document.getElementById("next-button-mobile").addEventListener("click", function() {
+    window.location.href = "association_page5.html"; 
+});
+
+</script>
+
+</html>

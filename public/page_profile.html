@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+
+    <title>Page de profile</title>
+    <style>
+        .bg-customGreen {
+            background-color: #0C9D79;
+        }
+
+        .text-MenuGreen {
+            color: #00353F;
+        }
+
+        .text-MenuGreen2 {
+            color: #F6E08E;
+        }
+
+        .bg-Yell {
+            background-color: #F6E08E;
+        }
+
+        .bg-buttonColor {
+            background-color: #43c2a3;
+        }
+
+        .bg-gridsColor {
+            background-color: #c4eae4;
+        }
+
+        .text-btnColor {
+            /*background-color: #1B9476;*/
+            color: #1B9476;
+        }
+
+        .container {
+            /* Assure que l'élément occupe exactement la largeur de la fenêtre */
+            overflow-x: hidden;
+            /* Empêche le défilement horizontal */
+        }
+
+        :root {
+            --white: #F1F5F9;
+            --white2: #ffffff;
+
+            z-index: 0;
+
+        }
+
+        .menu-item {
+            position: relative;
+
+        }
+
+        .menu-item::before,
+        .menu-item::before {
+            content: "";
+            position: absolute;
+            right: -8px;
+            top: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 35px 35px 0 10px var(--white);
+            pointer-events: none;
+            z-index: 1;
+
+        }
+
+        .menu-item::after,
+        .menu-item::after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            bottom: -50px;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 35px -35px 0 10px var(--white);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /*Pour le menu du bas*/
+        .circle {
+            width: 50px;
+            height: 50px;
+            background-color: #0C9D79;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+        }
+
+        /* Style des icônes */
+        .circle img {
+            width: 24px;
+            /* Ajuster la taille de l'icône */
+            height: 24px;
+        }
+
+        /* Découpe semi-circulaire dans la bande verte */
+        .green-bar::before {
+            content: "";
+            position: absolute;
+            background-color: #0C9D79;
+            width: 50px;
+            height: 50px;
+            border-top-right-radius: 50%;
+            top: 0;
+            z-index: 2;
+        }
+
+        .green-bar::after {
+            content: "";
+            position: absolute;
+            background-color: #0C9D79;
+            width: 50px;
+            height: 50px;
+            border-top-left-radius: 50%;
+
+            top: 0;
+
+        }
+
+        .green-bar::before {
+            left: calc(71.5% - 25px);
+            /* Ajuster la position de découpe */
+        }
+
+
+        .green-bar::after {
+            left: calc(92% - 25px);
+            /* Ajuster la position de découpe */
+        }
+
+        /* Animation de chargement de base */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-animation {
+            opacity: 0;
+            /* Initialement caché */
+            animation: fadeIn 1s ease-out forwards;
+            /* Durée 1s, déclenchement */
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 ">
+    <div class=" flex flex-row justify-around h-full w-full  ">
+        <!--<div class="bg-customGreen max-full z-50 w-48 lg:block rounded-tr-3xl hidden ">
+            <img src="LogoV3.png" alt="logo" class="h-20 w-32 mx-auto" >
+            <div class="text-2xl text-center text-MenuGreen mx-auto">Bénév<div class="text-MenuGreen2 inline">ALL</div></div>
+            
+            <p></p>
+        </div>-->
+        <div
+            class="sidebar  bg-customGreen p-2 z-50 w-60 lg:block rounded-tr-[100px] hidden overflow-y-auto duration-100 ">
+            <div class="text-black text-xl">
+                <div class="p-2.5 mt-1 flex flex-col items-center rounded-md  ">
+                    <img src="LogoV3.png" class="h-30 w-40 mx-auto">
+                    <div>
+                        <span class="text-[15px]  text-xl  text-green-950 font-bold mx-auto">Bénév</span><span
+                            class="text-[15px]  text-xl text-[#F6E08E] font-bold mx-auto ">ALL</span>
+                    </div>
+                </div>
+
+                <div class="items">
+                    <!--<div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  bg-gray-700">
+                    <i class="bi bi-search text-sm"></i>
+                    <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Serach" />
+                </div>-->
+                    <div
+                        class=" menu-item p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-slate-100 rounded-l-full  hover:bg-slate-100 hover:rounded-l-[60px] ">
+                        <i class="bi bi-person-fill"></i>
+                        <span class="text-[15px] ml-4 text-black">Profil</span>
+                    </div>
+                    <div
+                        class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                        <i class="bi bi-envelope-plus-fill"></i>
+                        <span class="text-[15px] ml-4 text-black">Upcoming Events</span>
+                    </div>
+                    <div
+                        class=" p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                        <i class="bi bi-envelope-check-fill"></i>
+                        <span class="text-[15px] ml-4 text-black">Applications</span>
+                    </div>
+
+                    <div
+                        class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                        <i class="bi bi-clock-history"></i>
+                        <span class="text-[15px] ml-4 text-black">History</span>
+                    </div>
+
+                    <div
+                        class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                        <i class="bi bi-gear-fill"></i>
+                        <span class="text-[15px] ml-4 text-black">Settings</span>
+                    </div>
+
+                    <div
+                        class=" p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                        <i class="bi bi-question-circle-fill"></i>
+                        <span class="text-[15px] ml-4 text-black">Help</span>
+                    </div>
+                    <!--
+                <div
+                    class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-chat-left-text-fill"></i>
+                    <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                        <span class="text-[15px] ml-4 text-gray-200">Chatbox</span>
+                        <span class="text-sm rotate-180" id="arrow">
+                            <i class="bi bi-chevron-down"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                    <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Social</h1>
+                    <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Personal</h1>
+                    <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Friends</h1>
+                </div>
+                <div
+                    class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                    <i class="bi bi-box-arrow-in-right"></i>
+                    <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+                </div>-->
+
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-100 h-full w-screen p-2 relative z-10  duration-1000">
+            <div class="relative bg-customGreen duration-5000 top-2  mx-auto w-full bg-customGreen  rounded-3xl  lg:hidden flex justify-between items-center shadow-sm mb-4 "
+                id="menuheader">
+                <button class="text-green-950 mr-4 relative left-0 duration-200">
+                    <span class=" text-4xl  left-cursor-pointer ml-3 mt-1" onclick="Openbar()">
+                        <i class="material-icons-outlined  text-4xl px-2 bg-customGreen rounded-md">menu</i>
+                    </span>
+                </button>
+                <div class="flex  flex-row justify-center w-40  ">
+                    <div class="pt-7 relative left-5"><span
+                            class="text-[15px]  text-green-950 font-bold">Bénév</span><span
+                            class="text-[15px]   font-bold text-yellow-300">ALL</span></div>
+                    <img src="LogoV3.png" alt="logo" class="h-20 w-30 relative right-0">
+                </div>
+
+            </div>
+            <div class="sidebar fixed left-0 top-0 bottom-0 duration-1000 bg-customGreen p-2 z-50 w-full rounded-tr-[100px] hidden "
+                id="sidebar2">
+                <i class="bi bi-x ml-20 cursor-pointer lg:hidden fixed top-0 -left-20 " onclick="Openbar()"></i>
+
+                <div class="text-black text-xl">
+
+                    <div class="p-2.5 mt-1 flex flex-col items-center rounded-md ">
+                        <img src="LogoV3.png" class="h-30 w-40 mx-auto">
+                        <div>
+                            <span class="text-[15px]  text-xl  text-green-950 font-bold mx-auto">Bénév</span><span
+                                class="text-[15px]  text-xl text-[#F6E08E] font-bold mx-auto ">ALL</span>
+                        </div>
+                    </div>
+
+                    <div class="items">
+                        <!--<div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  bg-gray-700">
+                            <i class="bi bi-search text-sm"></i>
+                            <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Serach" />
+                        </div>-->
+                        <div
+                            class=" p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px] ">
+                            <i class="bi bi-person-fill"></i>
+                            <span class="text-[15px] ml-4 text-black">Profil</span>
+                        </div>
+                        <div
+                            class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                            <i class="bi bi-envelope-plus-fill"></i>
+                            <span class="text-[15px] ml-4 text-black">Upcoming Events</span>
+                        </div>
+                        <div
+                            class=" p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                            <i class="bi bi-envelope-check-fill"></i>
+                            <span class="text-[15px] ml-4 text-black">Applications</span>
+                        </div>
+
+                        <div
+                            class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                            <i class="bi bi-clock-history"></i>
+                            <span class="text-[15px] ml-4 text-black">History</span>
+                        </div>
+
+                        <div
+                            class="  p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                            <i class="bi bi-gear-fill"></i>
+                            <span class="text-[15px] ml-4 text-black">Settings</span>
+                        </div>
+
+                        <div
+                            class=" p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-[#A2CAC4] hover:rounded-l-[60px]">
+                            <i class="bi bi-question-circle-fill"></i>
+                            <span class="text-[15px] ml-4 text-black">Help</span>
+                        </div>
+                        <!--
+                        <div
+                            class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                            <i class="bi bi-chat-left-text-fill"></i>
+                            <div class="flex justify-between w-full items-center" onclick="dropDown()">
+                                <span class="text-[15px] ml-4 text-gray-200">Chatbox</span>
+                                <span class="text-sm rotate-180" id="arrow">
+                                    <i class="bi bi-chevron-down"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class=" leading-7 text-left text-sm font-thin mt-2 w-4/5 mx-auto" id="submenu">
+                            <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Social</h1>
+                            <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Personal</h1>
+                            <h1 class="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">Friends</h1>
+                        </div>
+                        <div
+                            class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                            <span class="text-[15px] ml-4 text-gray-200">Logout</span>
+                        </div>-->
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="flex flex-cols">
+                <div class="text-green-950 bg-slate-100 w-full h-10 text-2xl hidden lg:flex font-bold ">Welcome Douaa!
+                </div>
+                <div
+                    class="text-green-950 bg-gridsColor  w-1/3 h-9 rounded-xl p-1 flex flex-row mx-auto hidden lg:flex ">
+                    <span class="material-icons-outlined mx-auto "><a href="#">home</a></span>
+
+                    <span class="material-icons-outlined mx-auto "><a>notifications</a></span>
+
+
+                    <span class="material-icons-outlined mx-auto"><a href="login.html">logout</a></span>
+
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-3 h-auto pb-3 min-[320px]:grid-cols-1 w-full relative z-30 ">
+                <div
+                    class=" lg:col-span-2 bg-gridsColor text-green-950 rounded-lg  h-auto min-[320px]:col-span-4 w-full">
+                    <div class="flex lg:flex-row  h-36 ">
+                        <div class="w-44 relative ">
+                            <img src="profileImage.png" class=" m-2  h-30 w-28 mx-auto">
+                            <div
+                                class="rounded-full bg-gridsColor h-10 w-10 absolute  right-6 top-20 lg:right-2 lg:top-20 md:right-2 sm:right-2">
+                            </div>
+                            <span
+                                class="material-icons-outlined absolute right-7 top-20 lg:right-3 md:right-3 sm:right-3 text-4xl h-10 lg:right-85">local_police</span>
+                        </div>
+                        <div
+                            class=" grid relative sm:grid-rows-2 lg:space-y-20  gap-2 lg:grid-cols-2  h-40 min-[320px]:w-52 sm:w-full mr-3 ml-2 md:w-full lg:w-full  z-10 ">
+                            <p class="h-auto m-3  lg:text-lg min-[320px]:text-lg ">
+                                <span class="font-bold ">KHOUDMI Douaa</span>
+                                <br>
+                                <span class="font-semibold ">Level 1 :</span>
+                                <span> helping Hand</span><br>
+                                <span class="font-semibold mb-2">Total points:</span> &nbsp;300pts
+                            </p>
+                            <div class="flex justify-end absolute bottom-0 right-0 ">
+                                <button class="bg-customGreen rounded-lg h-8 w-24  hover:bg-[#88b5a7]">
+                                    <span class="material-icons-outlined text-white ">edit</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="rounded-2xl bg-white relative bottom-2 h-5 m-3 mb-0">
+                        <div class="rounded-2xl bg-green-950  bottom-2 h-5 w-2/12"></div>
+                    </div>
+                    <p class="ml-10 mb-1 text-black">Beginner</p>
+                </div>
+                <div
+                    class=" relative bg-gridsColor p-4 text-white lg:col-span-2 lg:w-full rounded-lg h-auto min-[320px]:col-span-4">
+                    <h1 class="text-4xl text-black font-bold ">Profil views in last 30 days</h1>
+
+                    <div class="flex flex-row justify-between items-end relative  lg:-bottom-7 min-[320px]:mt-4 ">
+                        <p class="text-4xl text-teal-600 font-bold ">100</p>
+                        <button class="bg-customGreen  rounded-lg h-9 w-16  relative text-black hover:bg-[#5fa48e]">
+                            <span class="material-icons-outlined text-4xl text-white">
+                                upgrade
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-span-4 bg-gridsColor p-2  rounded-lg duration-1000">
+                    <div class="text-black font-bold mb-2 text-xl  ">Current Actions</div>
+                    <div class="grid lg:grid-cols-3 gap-4 min-[320px]:grid-cols-1">
+                        <div
+                            class="bg-slate-100 flex flex-row lg:flex-col rounded-xl text-black  w-auto relative min-[320px]:h-32 lg:h-full hover:shadow-lg hover:shadow-green-700">
+                            <img src="first-mission.png"
+                                class="rounded-xl h-32 lg:w-full sm:w-1/2 min-[700px]:w-1/2 lg:left-0 sm:left-0 md:w-full md:left-0 relative right-0 min-[320px]:w-40 ">
+                            <div class="">
+                                <div class="font-semibold  p-2 pb-0 inline ">Community Outreach Volunteer</div>
+                                <div class=" min-[320px]:w-72 lg:w-full m-0 p-3  ">
+                                    <span
+                                        class="material-icons-outlined text-indigo-900 relative -left-2">date_range</span>
+                                    <p class="inline text-indigo-900 font-semibold relative -left-2 -top-1">22 october
+                                        2024</p>
+                                    <p class="text-sm flex flex-wrap relative -left-1  w-64 ">Lorem ipsum dolor sit amet
+                                        consectetur. </p>
+                                    <div class="flex justify-end  ">
+                                        <button
+                                            class="bg-customGreen  rounded-lg h-8 w-14  text-black hover:bg-[#5fa48e]">
+                                            <span class="material-icons-outlined flex items-center justify-center">
+                                                arrow_forward
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div
+                            class="bg-slate-100 flex flex-row lg:flex-col rounded-xl text-black  w-auto relative min-[320px]:h-32 lg:h-full hover:shadow-lg hover:shadow-green-700">
+                            <img src="first-mission.png"
+                                class="rounded-xl h-32 lg:w-full sm:w-1/2 min-[700px]:w-1/2 lg:left-0 sm:left-0 md:w-full md:left-0 relative right-0 min-[320px]:w-40 ">
+                            <div>
+                                <div class="font-semibold  p-2 pb-0 inline ">Community Outreach Volunteer</div>
+                                <div class=" min-[320px]:w-72 lg:w-full m-0 p-3  ">
+                                    <span
+                                        class="material-icons-outlined text-indigo-900 relative -left-2">date_range</span>
+                                    <p class="inline text-indigo-900 font-semibold relative -left-2 -top-1">22 october
+                                        2024</p>
+                                    <p class="text-sm flex flex-wrap relative -left-1  w-64 ">Lorem ipsum dolor sit amet
+                                        consectetur. </p>
+                                    <div class="flex justify-end">
+                                        <button
+                                            class="bg-customGreen  rounded-lg h-8 w-14  text-black hover:bg-[#5fa48e]">
+                                            <span class="material-icons-outlined flex items-center justify-center">
+                                                arrow_forward
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div
+                            class="bg-slate-100 flex flex-row lg:flex-col rounded-xl text-black  w-auto relative min-[320px]:h-32 lg:h-full hover:shadow-lg hover:shadow-green-700">
+                            <img src="first-mission.png"
+                                class="rounded-xl h-32 lg:w-full sm:w-1/2 min-[700px]:w-1/2 lg:left-0 sm:left-0 md:w-full md:left-0 relative right-0 min-[320px]:w-40 ">
+                            <div>
+                                <div class="font-semibold  p-2 pb-0 inline ">Community Outreach Volunteer</div>
+                                <div class=" min-[320px]:w-72 lg:w-full m-0 p-3  ">
+                                    <span
+                                        class="material-icons-outlined text-indigo-900 relative -left-2">date_range</span>
+                                    <p class="inline text-indigo-900 font-semibold relative -left-2 -top-1">22 october
+                                        2024</p>
+                                    <p class="text-sm flex flex-wrap relative -left-1  w-64 ">Lorem ipsum dolor sit amet
+                                        consectetur. </p>
+                                    <div class="flex justify-end">
+                                        <button
+                                            class="bg-customGreen  rounded-lg h-8 w-14  text-black hover:bg-[#5fa48e]">
+                                            <span class="material-icons-outlined flex items-center justify-center">
+                                                arrow_forward
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="m-2 flex justify-center lg:hidden">
+                        <div class="rounded-xl bg-green-950  h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                    </div>
+                    <div class="m-2 hidden sm:flex sm:justify-center">
+                        <button class="bg-green-950 rounded-lg h-8 w-36 text-yellow-50 text-center">View more</button>
+                    </div>
+                </div>
+                <!--Ranking Section: bg-amber-200/bg-lime-600 -->
+                <div class="col-span-4 bg-gridsColor p-3 text-white rounded-lg duration-1000">
+                    <div class="font-bold text-black text-3xl ">Ranking</div>
+                    <div class=" w-full flex flex-col gap-3 text-black mt-4">
+                        <div class=" w-full h-9 bg-lime-500 rounded-lg flex justify-around items-center text-sm ">
+                            <p class="relative lg:-left-9 font-semibold ">Profil's image</p>
+                            <p class="relative lg:left-2 font-semibold">Full name</p>
+                            <p class="relative lg:left-7 font-semibold">Level</p>
+                            <p class="relative lg:left-12 font-semibold">Total Points</p>
+                            <p class="hidden sm:block relative left-7 font-semibold">bagde</p>
+                            <p class="hidden sm:block relative left-0 font-semibold">Area</p>
+                            <p class="hidden sm:block relative left-2 font-semibold">total missons</p>
+                        </div>
+
+                        <div
+                            class=" w-full h-9 bg-slate-100 rounded-full flex flex-row justify-around items-center text-sm">
+                            <p class="relative sm:right-2 lg:right-7">1</p>
+                            <img src="profileImage.png" class="h-8 w-8 relative sm:-left-8 lg:-left-20">
+                            <p>Georgina Lopez</p>
+                            <p>Humanity Hero</p>
+                            <p>1000000pts</p>
+                            <p class="hidden sm:block">gold </p>
+                            <p class="hidden sm:block">Casablanca </p>
+                            <p class="hidden sm:block">total missons</p>
+                        </div>
+                        <div
+                            class=" w-full h-9 bg-slate-100 rounded-full flex flex-row justify-around items-center text-sm">
+                            <p class="relative sm:right-2 lg:right-7">1</p>
+                            <img src="profileImage.png" class="h-8 w-8 relative sm:-left-8 lg:-left-20">
+                            <p>Georgina Lopez</p>
+                            <p>Humanity Hero</p>
+                            <p>1000000pts</p>
+                            <p class="hidden sm:block">gold </p>
+                            <p class="hidden sm:block">Casablanca </p>
+                            <p class="hidden sm:block">total missons</p>
+                        </div>
+                        <div
+                            class=" w-full h-9 bg-slate-100 rounded-full flex flex-row justify-around items-center text-sm">
+                            <p class="relative sm:right-2 lg:right-7">1</p>
+                            <img src="profileImage.png" class="h-8 w-8 relative sm:-left-8 lg:-left-20">
+                            <p>Georgina Lopez</p>
+                            <p>Humanity Hero</p>
+                            <p>1000000pts</p>
+                            <p class="hidden sm:block">gold </p>
+                            <p class="hidden sm:block">Casablanca </p>
+                            <p class="hidden sm:block">total missons</p>
+                        </div>
+                        <div
+                            class=" w-full h-9 bg-slate-100 rounded-full flex flex-row justify-around items-center text-sm">
+                            <p class="relative sm:right-2 lg:right-7">1</p>
+                            <img src="profileImage.png" class="h-8 w-8 relative sm:-left-8 lg:-left-20">
+                            <p>Georgina Lopez</p>
+                            <p>Humanity Hero</p>
+                            <p>1000000pts</p>
+                            <p class="hidden sm:block">gold </p>
+                            <p class="hidden sm:block">Casablanca </p>
+                            <p class="hidden sm:block">total missons</p>
+                        </div>
+                        <div
+                            class=" w-full h-9 bg-slate-100 rounded-full flex flex-row justify-around items-center text-sm">
+                            <p class="relative sm:right-2 lg:right-7">1</p>
+                            <img src="profileImage.png" class="h-8 w-8 relative sm:-left-8 lg:-left-20">
+                            <p>Georgina Lopez</p>
+                            <p>Humanity Hero</p>
+                            <p>1000000pts</p>
+                            <p class="hidden sm:block">gold </p>
+                            <p class="hidden sm:block">Casablanca </p>
+                            <p class="hidden sm:block">total missons</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            class="bg-green-950 rounded-full h-10 w-auto p-3 mt-4 mb-2 text-yellow-50 text-center flex items-center hover:bg-[#397864]">Discover
+                            your ranking</button>
+                    </div>
+                </div>
+                <!--Recommendations-->
+                <div class="col-span-4 bg-gridsColor p-3 rounded-lg h-auto min-[320px]:mb-9 lg:mb-0">
+                    <div class="font-bold text-black text-2xl mb-2">Recommandations for you </div>
+                    <div class="flex flex-cols gap-4 justify-between items-center h-auto">
+                        <div class="m-2 hidden sm:flex ">
+                            <a href="">
+                                <span class="material-icons-outlined">
+                                    arrow_back_ios
+                                </span>
+                            </a>
+                        </div>
+                        <div
+                            class="bg-slate-200 h-full w-full rounded-lg flex flex-cols gap-2  hover:shadow-md hover:shadow-green-700 ">
+                            <img src="donations.png" alt="donationsImage" class="w-1/2 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-black text-xl ">Charity Event</div>
+                                <p class=" text-gray-800 font-light text-sm ml-0.5 ">Humanitaire</p>
+
+                                <span
+                                    class="material-icons-outlined text-indigo-900 text-sm   font-bold ">date_range</span>
+                                <p class="inline text-black  text-sm    relative -top-0.5">10 november 2024</p>
+                                <br>
+
+                                <span class="material-icons-outlined text-indigo-900 text-sm   font-semibold  ">
+                                    location_on
+                                </span>
+                                <p class="inline text-black text-sm    relative -top-0.5">Casablanca</p>
+                                <p class="text-indigo-900 font-bold text-sm ">10/100 places</p>
+                                <div class="flex justify-between">
+                                    <img src="asso.png" alt="asso" class="w-10 h-10 rounded-md mt-2 mb-2 inline">
+                                    <p class="inline font-semibold text-sm w-auto m-1.5 ml-3">Association marocaine des
+                                        jeunes bénévoles</p>
+                                </div>
+                                <div class="flex justify-end m-2">
+                                    <button
+                                        class="bg-customGreen  rounded-xl h-8 w-14  text-white flex items-center justify-center hover:bg-[#5fa48e]">
+                                        <span class="material-icons-outlined ">
+                                            arrow_forward
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-slate-200 h-full w-full rounded-lg  flex-cols gap-2 hidden lg:flex hover:shadow-lg hover:shadow-green-700">
+                            <img src="donations.png" alt="donationsImage" class="w-1/2 rounded-lg">
+                            <div>
+                                <div class="font-semibold text-black text-xl ">Charity Event</div>
+                                <p class=" text-gray-800 font-light text-sm ml-0.5 ">Humanitaire</p>
+
+                                <span
+                                    class="material-icons-outlined text-indigo-900 text-sm   font-bold ">date_range</span>
+                                <p class="inline text-black  text-sm    relative -top-0.5">10 november 2024</p>
+                                <br>
+
+                                <span class="material-icons-outlined text-indigo-900 text-sm   font-semibold  ">
+                                    location_on
+                                </span>
+                                <p class="inline text-black text-sm    relative -top-0.5">Casablanca</p>
+                                <p class="text-indigo-900 font-bold text-sm ">10/100 places</p>
+                                <div class="flex justify-between">
+                                    <img src="asso.png" alt="asso" class="w-10 h-10 rounded-md mt-2 mb-2 inline">
+                                    <p class="inline font-semibold text-sm w-auto m-1.5 ml-3">Association marocaine des
+                                        jeunes bénévoles</p>
+                                </div>
+                                <div class="flex justify-end m-2">
+                                    <button
+                                        class="bg-customGreen  rounded-xl h-8 w-14  text-white flex items-center justify-center">
+                                        <span class="material-icons-outlined ">
+                                            arrow_forward
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-2 hidden sm:flex sm:justify-center">
+                            <a href="#">
+                                <span class="material-icons-outlined">
+                                    arrow_forward_ios
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="m-2 flex justify-center lg:hidden">
+                        <div class="rounded-xl bg-green-950  h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                        <div class="rounded-xl bg-white h-4 w-4 mr-2 inline-block"></div>
+                    </div>
+                </div>
+                <div class="bg-customGreen fixed bottom-0 left-0 w-screen h-12 lg:hidden md:hidden sm:hidden min-[320px]:block overflow-hidden green-bar"
+                    id="menuBas">
+                    <div class="flex justify-around items-center pr-3 ">
+                        <button
+                            class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center hover:bg-[]">
+                            <span class="material-icons-outlined">
+                                home
+                            </span>
+                        </button>
+                        <button><i
+                                class="fa-solid fa-ranking-star relative  hover:bg-slate-100 rounded-full w-10 h-7 flex justify-center items-center"></i></button>
+                        <button class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center">
+                            <span class="material-icons-outlined">
+                                notifications
+                            </span>
+                        </button>
+                        <button class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center">
+                            <span class="material-icons-outlined">
+                                settings
+                            </span>
+                        </button>
+                        <div
+                            class=" relative -top-2 right-0 h-14  mt-0 w-28 bg-slate-100   flex justify-center items-end menuDown-item">
+                            <div class=" rounded-lg h-16 flex justify-end bg-slate-100  w-14 rounded-b-full">
+
+                                <button
+                                    class=" rounded-full bg-customGreen relative top-7 right-2.5  w-10 h-8 flex justify-center items-center z-10 ">
+                                    <span class="material-icons-outlined">
+                                        person
+                                    </span>
+                                </button>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div><!--Grid-->
+        </div><!--BgOfGrid-->
+    </div><!--WholePAge-->
+    <footer
+        class="bg-green-950  w-full h-7 text-white flex justify-start items-center font-light lg:block md:block sm:block min-[320px]:hidden ">
+        © 2024 All rights reserved | Legal Notice | Privacy Policy
+    </footer>
+
+    <script>
+        city = document.getElementById("city")
+        category = document.getElementById("category")
+        citymenu = document.getElementById("citymenu")
+        city.addEventListener("click", function () {
+            citymenu.classList.toggle("hidden")
+        })
+        category.addEventListener("click", function () {
+            categorymenu.classList.toggle("hidden")
+        })
+        function dropDown() {
+            document.querySelector('#submenu').classList.toggle('hidden')
+            document.querySelector('#arrow').classList.toggle('rotate-0')
+        }
+        dropDown()
+
+        function Openbar() {
+            document.getElementById('sidebar2').classList.toggle('hidden')
+            //document.getElementById('menuBas').classList.toggle('fixed')
+            document.getElementById('menuheader').classList.toggle('hidden')
+        }
+        AOS.init({
+            duration: 1000, // Durée de l'animation en millisecondes
+            once: true,     // L'animation se déclenche une seule fois (sinon, elle se répète à chaque scroll)
+        });
+    </script>
+</body>
+
+</html>

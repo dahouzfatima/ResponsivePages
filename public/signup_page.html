@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BénévALL</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+      .logo {
+          width: 60%;
+          max-width: 120px; 
+      }
+      .header-logo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+          justify-content: center;
+      }
+      .centre {
+          background-color: #a2cac46f;
+          min-height: 500px;
+      }
+      .bouton {
+        width: 300px; 
+        height: 300px;
+        background: linear-gradient(to bottom, #038C77, #DAFAF5); /* Gradient background */
+      }
+      h2 {
+        font-family: 'Roboto Serif';
+      }
+      .titre {
+        font-family: 'Roboto';
+        color: rgba(0, 0, 0, 0.413);
+      }
+      footer{
+        font-family: 'Roboto',sans-serif;
+      }
+  </style>
+</head>
+<body class="bg-neutral-200 flex flex-col min-h-screen">
+  
+  <!-- Header -->
+  <header class="bg-teal-600 text-white flex justify-between items-center p-2">
+    <div class="header-logo">
+        <img src="LogoV3.png" alt="logo" class="logo">
+        <h1 class="text-lg text-blue-950 ml-2">Bénév<span class="text-yellow-300">ALL</span></h1> <!-- Ajout d'une petite marge à gauche du texte -->
+    </div>
+    <div class="flex gap-8">
+      <a href="#" class="text-white">
+        <img src="home_24dp_274483_FILL0_wght400_GRAD0_opsz24.png" alt="home" class="h-10 w-10">
+      </a>
+      <a href="#" class="text-white">
+        <img src="help_24dp_274483_FILL0_wght400_GRAD0_opsz24.png" alt="help" class="h-10 w-10">
+      </a>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="centre flex flex-col items-center p-10 rounded-lg shadow-lg max-w-md md:max-w-7xl mb-20 mx-auto w-full text-center">
+      <h2 class="text-6xl font-bold mb-8">Are you?</h2>
+      <div class="flex flex-col md:flex-row md:space-x-20 md:gap-20 space-y-6 md:space-y-0">
+        
+        <!-- Volunteer Button -->
+        <a href="volunteer_page1.html" class="bouton p-6 rounded-lg shadow-lg text-center text-white hover:opacity-90 transition flex flex-col items-center justify-center">
+          <h3 class="titre text-4xl font-normal mb-10 mt-0">Volunteer</h3>
+          <img src="volunteer 1.png" alt="Volunteer" class="mb-5 h-40 w-40">
+        </a>
+        
+        <!-- Association Button -->
+        <a href="association_page1.html" class="bouton p-6 rounded-lg shadow-lg text-center text-white hover:opacity-90 transition flex flex-col items-center justify-center">
+          <h3 class="titre text-4xl font-normal mb-10 mt-0">Association</h3>
+          <img src="users-linked 1.png" alt="Association" class="mb-5 h-40 w-40">
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-teal-600 text-white text-center py-4 w-full fixed bottom-0">
+    <p class="text-md ">&copy; 2024 All rights reserved | <a href="#" class="hover:underline">Legal Notice</a> | <a href="#" class="hover:underline">Privacy Policy</a></p>
+  </footer>
+  
+</body>
+</html>
