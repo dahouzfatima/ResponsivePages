@@ -173,7 +173,7 @@
 
 <body class="bg-[#E9E9E9] font-[Poppins] max-w-full">
 
-    <div class="relative bg-customGreen top-2 w-[95%]  mx-auto bg-customGreen  rounded-3xl  lg:hidden flex justify-between items-center shadow-sm"
+    <div class="relative  top-2 w-[95%]  mx-auto bg-customGreen  rounded-3xl  lg:hidden flex justify-between items-center shadow-sm"
         id="menuheader">
         <button class="text-green-950 mr-4 relative left-0 ">
             <span class=" text-4xl  left-cursor-pointer ml-3 mt-1" onclick="Openbar()">
@@ -549,73 +549,115 @@
 
 
         </div>
-        <ol class="flex justify-center gap-1 text-md text-[#5F6368] font-bold pb-5">
-            <li>
-                <a href="#"
-                    class="inline-flex size-8 items-center justify-center rounded    rtl:rotate-180 hover:bg-[#f5e1ce] hover:rounded-full">
-                    <span class="sr-only">Prev Page</span>
-                    <i class="bi bi-chevron-left font-bold"></i>
-                </a>
-            </li>
+        <div>
+            <ol class="flex justify-center gap-1 text-md text-[#5F6368] font-bold pb-5">
+                <li>
+                    <a href="#"
+                        class="inline-flex size-8 items-center justify-center rounded    rtl:rotate-180 hover:bg-[#f5e1ce] hover:rounded-full">
+                        <span class="sr-only">Prev Page</span>
+                        <i class="bi bi-chevron-left font-bold"></i>
+                    </a>
+                </li>
 
-            <li>
-                <a href="#" class="block size-8 rounded   text-center leading-8 hover:rounded-full hover:bg-[#f5e1ce]">
-                    1
-                </a>
-            </li>
+                <li>
+                    <a href="#"
+                        class="block size-8 rounded   text-center leading-8 hover:rounded-full hover:bg-[#f5e1ce]">
+                        1
+                    </a>
+                </li>
 
-            <li class="block size-8 rounded-[50%] border-green-900 bg-green-900 text-center leading-8 text-white">
-                2
-            </li>
+                <li class="block size-8 rounded-[50%] border-green-900 bg-green-900 text-center leading-8 text-white">
+                    2
+                </li>
 
-            <li>
-                <a href="#" class="block size-8 rounded   text-center leading-8 hover:bg-[#f5e1ce] hover:rounded-full">
-                    3
-                </a>
-            </li>
+                <li>
+                    <a href="#"
+                        class="block size-8 rounded   text-center leading-8 hover:bg-[#f5e1ce] hover:rounded-full">
+                        3
+                    </a>
+                </li>
 
-            <li>
-                <a href="#" class="block size-8 rounded  text-center leading-8 hover:bg-[#f5e1ce] hover:rounded-full">
-                    4
-                </a>
-            </li>
+                <li>
+                    <a href="#"
+                        class="block size-8 rounded  text-center leading-8 hover:bg-[#f5e1ce] hover:rounded-full">
+                        4
+                    </a>
+                </li>
 
-            <li>
-                <a href="#"
-                    class="inline-flex size-8 items-center justify-center rounded  e  hover:rounded-full`       y5 rtl:rotate-180 hover:bg-[#f5e1ce]">
-                    <span class="sr-only">Next Page</span>
-                    <i class="bi bi-chevron-right font-bold"></i>
-                </a>
-            </li>
-        </ol>
-
+                <li>
+                    <a href="#"
+                        class="inline-flex size-8 items-center justify-center rounded  e  hover:rounded-full`       y5 rtl:rotate-180 hover:bg-[#f5e1ce]">
+                        <span class="sr-only">Next Page</span>
+                        <i class="bi bi-chevron-right font-bold"></i>
+                    </a>
+                </li>
+            </ol>
+        </div>
     </div>
     </div>
 
     </div>
+    <div class="relative bg-customGreen fixed bottom-0 left-0 w-screen h-12 lg:hidden md:hidden sm:hidden min-[320px]:block overflow-hidden green-bar"
+        id="menuBas">
+        <div class="flex justify-around items-center pr-3 ">
+            <button class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center">
+                <span class="material-icons-outlined">
+                    home
+                </span>
+            </button>
+            <button> <span class="material-icons-outlined">
+                    person
+                </span></button>
+            <button class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center">
+                <span class="material-icons-outlined">
+                    notifications
+                </span>
+            </button>
+            <button class="hover:bg-slate-100 rounded-full w-10 h-8 flex justify-center items-center">
+                <span class="material-icons-outlined">
+                    settings
+                </span>
+            </button>
+            <div
+                class=" relative -top-2 right-0 h-14  mt-0 w-28 bg-slate-100   flex justify-center items-end menuDown-item">
+                <div class=" rounded-lg h-16 flex justify-end bg-slate-100  w-14 rounded-b-full">
+
+                    <button
+                        class=" rounded-full bg-customGreen relative top-7 right-2.5  w-10 h-8 flex justify-center items-center z-10 ">
+                        <i
+                            class="fa-solid fa-ranking-star relative  hover:bg-slate-100 rounded-full w-10 h-7 flex justify-center items-center"></i>
+                    </button>
 
 
-    <script>
-        city = document.getElementById("city")
-        category = document.getElementById("category")
-        citymenu = document.getElementById("citymenu")
-        city.addEventListener("click", function () {
-            citymenu.classList.toggle("hidden")
-        })
-        category.addEventListener("click", function () {
-            categorymenu.classList.toggle("hidden")
-        })
-        function dropDown() {
-            document.querySelector('#submenu').classList.toggle('hidden')
-            document.querySelector('#arrow').classList.toggle('rotate-0')
-        }
-        dropDown()
 
-        function Openbar() {
-            document.querySelector('.sidebar').classList.toggle('left-[-300px]')
-            document.getElementById('menuheader').classList.toggle('hidden')
-        }
-    </script>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <script>
+            city = document.getElementById("city")
+            category = document.getElementById("category")
+            citymenu = document.getElementById("citymenu")
+            city.addEventListener("click", function () {
+                citymenu.classList.toggle("hidden")
+            })
+            category.addEventListener("click", function () {
+                categorymenu.classList.toggle("hidden")
+            })
+            function dropDown() {
+                document.querySelector('#submenu').classList.toggle('hidden')
+                document.querySelector('#arrow').classList.toggle('rotate-0')
+            }
+            dropDown()
+
+            function Openbar() {
+                document.querySelector('.sidebar').classList.toggle('left-[-300px]')
+                document.getElementById('menuheader').classList.toggle('hidden')
+            }
+        </script>
 </body>
 
 </html>
